@@ -1,0 +1,172 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:+5V #PWR?
+U 1 1 5EECC148
+P 8650 2025
+F 0 "#PWR?" H 8650 1875 50  0001 C CNN
+F 1 "+5V" H 8665 2198 50  0000 C CNN
+F 2 "" H 8650 2025 50  0001 C CNN
+F 3 "" H 8650 2025 50  0001 C CNN
+	1    8650 2025
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:USB_B_Micro J?
+U 1 1 5EEEA95C
+P 6450 2275
+F 0 "J?" H 6507 2742 50  0000 C CNN
+F 1 "USB_B_Micro" H 6507 2651 50  0000 C CNN
+F 2 "" H 6600 2225 50  0001 C CNN
+F 3 "~" H 6600 2225 50  0001 C CNN
+	1    6450 2275
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EEEBF85
+P 6450 2825
+F 0 "#PWR?" H 6450 2575 50  0001 C CNN
+F 1 "GND" H 6455 2652 50  0000 C CNN
+F 2 "" H 6450 2825 50  0001 C CNN
+F 3 "" H 6450 2825 50  0001 C CNN
+	1    6450 2825
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Ferrite_Bead FB?
+U 1 1 5EEEC56B
+P 6075 2725
+F 0 "FB?" V 6325 2900 50  0000 R CNN
+F 1 "Ferrite_Bead" V 6225 3075 50  0000 R CNN
+F 2 "" V 6005 2725 50  0001 C CNN
+F 3 "~" H 6075 2725 50  0001 C CNN
+	1    6075 2725
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6350 2675 6350 2725
+Wire Wire Line
+	6350 2725 6225 2725
+$Comp
+L Device:Ferrite_Bead FB?
+U 1 1 5EEEEF76
+P 7075 2075
+F 0 "FB?" V 7350 2125 50  0000 R CNN
+F 1 "Ferrite_Bead" V 7250 2275 50  0000 R CNN
+F 2 "" V 7005 2075 50  0001 C CNN
+F 3 "~" H 7075 2075 50  0001 C CNN
+	1    7075 2075
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5EEF0932
+P 7925 2450
+F 0 "C?" H 8040 2496 50  0000 L CNN
+F 1 "100n" H 8040 2405 50  0000 L CNN
+F 2 "" H 7963 2300 50  0001 C CNN
+F 3 "~" H 7925 2450 50  0001 C CNN
+	1    7925 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 5EEF17AD
+P 8375 2450
+F 0 "C?" H 8493 2496 50  0000 L CNN
+F 1 "47u" H 8493 2405 50  0000 L CNN
+F 2 "" H 8413 2300 50  0001 C CNN
+F 3 "~" H 8375 2450 50  0001 C CNN
+	1    8375 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Polyfuse F?
+U 1 1 5EEF56EB
+P 7575 2075
+F 0 "F?" V 7300 2075 50  0000 C CNN
+F 1 "3A" V 7400 2075 50  0000 C CNN
+F 2 "" H 7625 1875 50  0001 L CNN
+F 3 "~" H 7575 2075 50  0001 C CNN
+	1    7575 2075
+	0    1    1    0   
+$EndComp
+NoConn ~ 6750 2275
+NoConn ~ 6750 2375
+NoConn ~ 6750 2475
+Wire Wire Line
+	6750 2075 6925 2075
+Wire Wire Line
+	7425 2075 7225 2075
+Wire Wire Line
+	8650 2075 8650 2025
+Connection ~ 8375 2075
+Wire Wire Line
+	8375 2075 8650 2075
+$Comp
+L power:GND #PWR?
+U 1 1 5EEFB530
+P 7925 2825
+F 0 "#PWR?" H 7925 2575 50  0001 C CNN
+F 1 "GND" H 7930 2652 50  0000 C CNN
+F 2 "" H 7925 2825 50  0001 C CNN
+F 3 "" H 7925 2825 50  0001 C CNN
+	1    7925 2825
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EEFB9A1
+P 8375 2825
+F 0 "#PWR?" H 8375 2575 50  0001 C CNN
+F 1 "GND" H 8380 2652 50  0000 C CNN
+F 2 "" H 8375 2825 50  0001 C CNN
+F 3 "" H 8375 2825 50  0001 C CNN
+	1    8375 2825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7725 2075 7925 2075
+Connection ~ 7925 2075
+Wire Wire Line
+	7925 2075 8375 2075
+$Comp
+L power:GND #PWR?
+U 1 1 5EEFE34B
+P 5800 2825
+F 0 "#PWR?" H 5800 2575 50  0001 C CNN
+F 1 "GND" H 5805 2652 50  0000 C CNN
+F 2 "" H 5800 2825 50  0001 C CNN
+F 3 "" H 5800 2825 50  0001 C CNN
+	1    5800 2825
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5925 2725 5800 2725
+Wire Wire Line
+	5800 2725 5800 2825
+Wire Wire Line
+	6450 2675 6450 2825
+Wire Wire Line
+	7925 2075 7925 2300
+Wire Wire Line
+	8375 2075 8375 2300
+Wire Wire Line
+	8375 2600 8375 2825
+Wire Wire Line
+	7925 2600 7925 2825
+$EndSCHEMATC
