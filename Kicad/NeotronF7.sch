@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A2 23386 16535
 encoding utf-8
-Sheet 1 6
+Sheet 1 7
 Title "Neotron F7"
 Date "2020-05-25"
 Rev "0.0.1"
@@ -3082,8 +3082,6 @@ Entry Wire Line
 	-7575 9450 -7475 9550
 Entry Wire Line
 	-7575 9550 -7475 9650
-Wire Bus Line
-	-7475 7375 -7475 11175
 $Comp
 L Memory_RAM:ESP-PSRAM32 U?
 U 1 1 6438446A
@@ -3095,4 +3093,12 @@ F 3 "" H 8200 5075 50  0001 C CNN
 	1    8600 4575
 	-1   0    0    -1  
 $EndComp
+$Sheet
+S 15650 4275 1875 1500
+U 64388AFF
+F0 "USB Hi-Speed Hub" 50
+F1 "usb2hub.sch" 50
+$EndSheet
+Wire Bus Line
+	-7475 7375 -7475 11175
 $EndSCHEMATC
