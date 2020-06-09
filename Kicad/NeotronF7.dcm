@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPF133A
+D 3-channel HD Video Filter
+K Video Filter
+F https://datasheet.lcsc.com/szlcsc/3PEAK-TPF133A-SR_C155446.pdf
+$ENDCMP
+#
+#End Doc Library
