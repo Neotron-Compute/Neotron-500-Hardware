@@ -1,2 +1,3 @@
 (sym_lib_table
+  (lib (name NeotronF7)(type Legacy)(uri ${KIPRJMOD}/NeotronF7.lib)(options "")(descr ""))
 )
