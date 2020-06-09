@@ -6,18 +6,25 @@
 
 * 200 MHz 32-bit ARM Cortex-M7 CPU core
 * 528 KiB of internal SRAM
-* 32 MiB external 16-bit SDRAM
+* 8 MiB external QuadSPI SRAM
 * 16-bit Super-VGA output: 800x600 resolution @ 60 Hz
-* 16-bit digital audio input and output (line-in, mic-in, line-out and headphone-out)
+* 16-bit 48 kHz audio input and output (line-in, mic-in, line-out and headphone-out)
 * Four high-speed (480 Mbps) USB 2.0 ports
 * IEEE1284 Parallel Port
 * RS232 Port (five-wire)
 * SD/MMC Slot
-* CompactFlash Memory slot
 * PS/2 Keyboard and Mouse ports
 * IDE Interface for hard drive, Zip drive, LS-120 or CD-ROM
 * Battery-backed Real-time Clock and CMOS RAM
 * SPI and I2C based expansion bus
+
+## Why 528ST?
+
+We called this the 528ST because:
+
+* It has a part from ST Micro
+* It has 528 KiB of internal SRAM
+* It sounds a bit like that 68000 based machine that wasn't quite as good as an Amiga 500...
 
 ## The detailed specs
 
@@ -77,22 +84,31 @@ The motherboard has:
 * Regulated 5V Input
   * If you want to power four 500 mA USB devices from your Neotron 528ST, this needs to be capable at least 2.5A
   * TBD whether this is a DC barrel jack, full-size USB B, mini USB B or micro USB B
-  * We could also take 6V-9V from a DC barrel jack and have an on-board 5V regulator
+  * Or even take 5V from a 110V/240V IEC inlet PSU
+  * Or we could take 6V-9V from a DC barrel jack and have an on-board 5V regulator
+* Lyontek LY68L6400SLIT 8 MiB (8Mbit x 8) QuadSPI SRAM
+  * 4-bit interface
+  * 84 MHz clock rate
 * Texas Instruments DP83848C 10/100 MII/RMII Ethernet PHY, and RJ45 Ethernet jack
+  * MII Interface to the STM32
 * Texas Instruments TLV320AIC23BPW Audio Codec
-  * 16-bit 48 kHz I2S input and output
-  * Amplified stereo headphone output
-  * Line-level stereo output
-  * Line-level stereo input
-  * Mono microphone input
+  * 16-bit 48 kHz I2S input and output to the STM32
+  * Amplified stereo 3.5mm TRS headphone output
+  * Line-level stereo 3.5mm TRS output
+  * Line-level stereo 3.5mm TRS input
+  * Mono microphone 3.5mm input
 * Microchip USB3300 High-speed (480 Mbps) ULPI USB 2.0 PHY
-* Microchip USB2514B High-speed (480 Mbps) four port USB 2.0 hub
-* 16-bit R2R DAC, 
-
-
-C261882 LY68S3200SLT  Memory  RAM SOP-8_3.9x4.9x1.27P 8 Lyontek Inc.  Extended  4 MiB QuadSPI SRAM  RAM SRAM 32Mb (4M x 8) SPI/ QPI SOP-8_150mil RoHS https://datasheet.lcsc.com/szlcsc/Lyontek-Inc-LY68S3200SLT_C261882.pdf
-C261881 LY68L6400SLIT Memory  RAM SOP-8_3.9x4.9x1.27P 8 Lyontek Inc.  Extended  8 MiB QuadSPI SRAM  RAM SRAM 64Mb (8M x 8) SPI/ QPI SOP-8_150mil RoHS https://datasheet.lcsc.com/szlcsc/Lyontek-Inc-LY68L6400SLIT_C261881.pdf
-C26393  MT48LC16M16A2P-6A IT:G  Memory  SDRAM TSOP-54_10.2x22.2x0.8P  54  Micron Tech Extended  32 MiB SDRAM  SDRAM TSOP(II)-54 RoHS  https://datasheet.lcsc.com/szlcsc/Micron-Tech-MT48LC16M16A2P-6A-IT-G_C26393.pdf
-
+* Microchip USB2514B High-speed (480 Mbps) four port USB 2.0 hub, with 2x2 USB 2.0 A ports.
+* 16-bit (5-6-5) R2R DAC and 3PEAK HD video output buffer, with DE15HD VGA connector
+* Full-size external-facing SD Card slot
+* 2x PS/2 Ports for keyboard and mouse (2x mini-DIN 6-pin sockets)
+* 2x Atari Joystick/SEGA Genesis game-pad ports (DE-9 male)
+* Power switch and reset switch
+* MIDI In and Out ports (2x 5-pin DIN180 sockets)
+* IEEE1284 Parallel Port (26-pin IDC box header as used on PCs)
+* RS232 Port (five-wire, 10-pin IDC box header as used on PCs)
+* 40-pin IDE interface
+* Battery-backed Real-time Clock and CMOS RAM
+* SPI and I2C based expansion bus (compatible with the Neotron 32)
 
 [JLCPCB SMT assembly service]: https://jlcpcb.com/parts
