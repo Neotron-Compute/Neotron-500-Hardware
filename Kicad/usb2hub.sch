@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 7 7
+Sheet 6 6
 Title ""
 Date ""
 Rev ""
@@ -16,29 +16,656 @@ $EndDescr
 $Comp
 L Interface_USB:USB3300-EZK U?
 U 1 1 643FE60E
-P 5425 3575
+P 4100 2475
 AR Path="/643FE60E" Ref="U?"  Part="1" 
 AR Path="/64388AFF/643FE60E" Ref="U601"  Part="1" 
-F 0 "U601" H 5425 2386 50  0000 C CNN
-F 1 "USB3300-EZK" H 5425 2295 50  0000 C CNN
-F 2 "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm" H 6725 2325 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/00001783C.pdf" H 5425 3575 50  0001 C CNN
-	1    5425 3575
+F 0 "U601" H 4100 1286 50  0000 C CNN
+F 1 "USB3300-EZK" H 4100 1195 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm" H 5400 1225 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/00001783C.pdf" H 4100 2475 50  0001 C CNN
+	1    4100 2475
 	-1   0    0    -1  
 $EndComp
+Wire Wire Line
+	5650 1875 4900 1875
+Wire Wire Line
+	4900 1975 5650 1975
+Text HLabel 2450 1975 0    50   BiDi ~ 0
+DATA[7..0]
+Entry Wire Line
+	2900 1975 3000 2075
+Entry Wire Line
+	2900 2075 3000 2175
+Entry Wire Line
+	2900 2175 3000 2275
+Entry Wire Line
+	2900 2275 3000 2375
+Entry Wire Line
+	2900 2375 3000 2475
+Entry Wire Line
+	2900 2475 3000 2575
+Entry Wire Line
+	2900 2575 3000 2675
+Entry Wire Line
+	2900 2675 3000 2775
+Wire Wire Line
+	3300 2775 3000 2775
+Wire Wire Line
+	3300 2675 3000 2675
+Wire Wire Line
+	3300 2575 3000 2575
+Wire Wire Line
+	3300 2475 3000 2475
+Wire Wire Line
+	3300 2375 3000 2375
+Wire Wire Line
+	3000 2275 3300 2275
+Wire Wire Line
+	3300 2175 3000 2175
+Wire Wire Line
+	3000 2075 3300 2075
+Text Label 3025 2075 0    50   ~ 0
+DATA7
+Text Label 3025 2175 0    50   ~ 0
+DATA6
+Text Label 3025 2275 0    50   ~ 0
+DATA5
+Text Label 3025 2375 0    50   ~ 0
+DATA4
+Text Label 3025 2475 0    50   ~ 0
+DATA3
+Text Label 3025 2575 0    50   ~ 0
+DATA2
+Text Label 3025 2675 0    50   ~ 0
+DATA1
+Text Label 3025 2775 0    50   ~ 0
+DATA0
+Wire Bus Line
+	2450 1975 2900 1975
 $Comp
-L Interface_USB:USB2514B_Bi U602
-U 1 1 644028E0
-P 8075 3675
-F 0 "U602" H 8075 2086 50  0000 C CNN
-F 1 "USB2514B_Bi" H 8075 1995 50  0000 C CNN
-F 2 "Package_DFN_QFN:QFN-36-1EP_6x6mm_P0.5mm_EP3.7x3.7mm" H 9375 2175 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/00001692C.pdf" H 9675 2075 50  0001 C CNN
-	1    8075 3675
+L Neotron-528ST:USB_A_x2 J?
+U 1 1 626FA669
+P 9100 2325
+F 0 "J?" H 8870 2614 50  0000 R CNN
+F 1 "USB_A_x2" H 8870 2523 50  0000 R CNN
+F 2 "" H 9250 2375 50  0001 C CNN
+F 3 " ~" H 9250 2375 50  0001 C CNN
+	1    9100 2325
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 1775 8375 1775
+Wire Wire Line
+	8375 1775 8375 1725
+Wire Wire Line
+	8375 1725 8800 1725
+Wire Wire Line
+	7850 1675 8275 1675
+Wire Wire Line
+	8275 1675 8275 1625
+Wire Wire Line
+	8275 1625 8800 1625
+Text Notes 8025 1375 0    50   Italic 0
+USB 2.0 is 50 ohm\ndifferential pairs
+$Comp
+L Connector_Generic:Conn_02x05_Top_Bottom J?
+U 1 1 62700745
+P 9350 4075
+F 0 "J?" H 9400 4492 50  0000 C CNN
+F 1 "Conn_02x05_Top_Bottom" H 9400 4401 50  0000 C CNN
+F 2 "" H 9350 4075 50  0001 C CNN
+F 3 "~" H 9350 4075 50  0001 C CNN
+	1    9350 4075
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6975 2975 6225 2975
+	9650 3975 10000 3975
 Wire Wire Line
-	6225 3075 6975 3075
+	10000 3550 10000 3975
+Wire Wire Line
+	10050 4075 9650 4075
+Wire Wire Line
+	10050 3600 10050 4075
+NoConn ~ 9150 4275
+Wire Wire Line
+	8700 2775 8700 3600
+Wire Wire Line
+	8700 3600 10050 3600
+Wire Wire Line
+	8775 3550 10000 3550
+Wire Wire Line
+	8775 2675 8775 3550
+Wire Wire Line
+	8625 3975 8625 3175
+Wire Wire Line
+	8625 3975 9150 3975
+Wire Wire Line
+	8550 4075 9150 4075
+Wire Wire Line
+	8550 3275 8550 4075
+$Comp
+L power:GND #PWR?
+U 1 1 62709DC6
+P 9750 4375
+F 0 "#PWR?" H 9750 4125 50  0001 C CNN
+F 1 "GND" H 9755 4202 50  0000 C CNN
+F 2 "" H 9750 4375 50  0001 C CNN
+F 3 "" H 9750 4375 50  0001 C CNN
+	1    9750 4375
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6270A7C5
+P 9050 4375
+F 0 "#PWR?" H 9050 4125 50  0001 C CNN
+F 1 "GND" H 9055 4202 50  0000 C CNN
+F 2 "" H 9050 4375 50  0001 C CNN
+F 3 "" H 9050 4375 50  0001 C CNN
+	1    9050 4375
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6270B412
+P 9325 2975
+F 0 "#PWR?" H 9325 2725 50  0001 C CNN
+F 1 "GND" H 9330 2802 50  0000 C CNN
+F 2 "" H 9325 2975 50  0001 C CNN
+F 3 "" H 9325 2975 50  0001 C CNN
+	1    9325 2975
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9325 2975 9325 2850
+Wire Wire Line
+	9325 2850 9200 2850
+Wire Wire Line
+	9000 2850 9000 2725
+Wire Wire Line
+	9100 2725 9100 2850
+Connection ~ 9100 2850
+Wire Wire Line
+	9100 2850 9000 2850
+Wire Wire Line
+	9200 2725 9200 2850
+Connection ~ 9200 2850
+Wire Wire Line
+	9200 2850 9100 2850
+Wire Wire Line
+	9650 4275 9750 4275
+Wire Wire Line
+	9750 4275 9750 4375
+Wire Wire Line
+	9650 4175 9750 4175
+Wire Wire Line
+	9750 4175 9750 4275
+Connection ~ 9750 4275
+Wire Wire Line
+	9150 4175 9050 4175
+Wire Wire Line
+	9050 4175 9050 4375
+Wire Wire Line
+	9650 3875 9950 3875
+Wire Wire Line
+	9150 3875 8850 3875
+Wire Wire Line
+	8800 1525 8475 1525
+Wire Wire Line
+	8800 2125 8425 2125
+Text Label 8550 1525 0    50   ~ 0
+VBUS1
+Text Label 8550 2125 0    50   ~ 0
+VBUS2
+Text Label 8925 3875 0    50   ~ 0
+VBUS3
+Text Label 9850 3875 2    50   ~ 0
+VBUS4
+Text Notes 10100 4800 2    50   ~ 0
+Use PC-style internal USB2.0 10 pin socket to 2x USB A cable.\nPin 5 on this header is missing, to act as a key.
+$Comp
+L power:GND #PWR?
+U 1 1 62714872
+P 6750 4075
+F 0 "#PWR?" H 6750 3825 50  0001 C CNN
+F 1 "GND" H 6755 3902 50  0000 C CNN
+F 2 "" H 6750 4075 50  0001 C CNN
+F 3 "" H 6750 4075 50  0001 C CNN
+	1    6750 4075
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6271B82C
+P 1550 4775
+AR Path="/6271B82C" Ref="#PWR?"  Part="1" 
+AR Path="/5ED29570/6271B82C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1550 4625 50  0001 C CNN
+F 1 "+5V" H 1565 4948 50  0000 C CNN
+F 2 "" H 1550 4775 50  0001 C CNN
+F 3 "" H 1550 4775 50  0001 C CNN
+	1    1550 4775
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 6271B832
+P 2700 5350
+AR Path="/6271B832" Ref="C?"  Part="1" 
+AR Path="/5ED29570/6271B832" Ref="C?"  Part="1" 
+F 0 "C?" H 2675 5225 50  0000 R CNN
+F 1 "100u" H 2725 5225 50  0000 L CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3528-21_Kemet-B" H 2738 5200 50  0001 C CNN
+F 3 "~" H 2700 5350 50  0001 C CNN
+	1    2700 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Power_Management:AAT4610BIGV-1-T1 U?
+U 1 1 6271B838
+P 2050 5025
+AR Path="/6271B838" Ref="U?"  Part="1" 
+AR Path="/5ED29570/6271B838" Ref="U?"  Part="1" 
+F 0 "U?" H 2050 5392 50  0000 C CNN
+F 1 "AAT4610BIGV-1-T1" H 2050 5301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-8" H 2050 5375 50  0001 C CNN
+F 3 "http://www.skyworksinc.com/uploads/documents/201937A.pdf" H 2000 5325 50  0001 C CNN
+	1    2050 5025
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 4925 2700 4925
+Wire Wire Line
+	2700 4925 2700 5200
+Connection ~ 2700 4925
+Wire Wire Line
+	2050 5325 2050 5675
+Wire Wire Line
+	2050 5675 2400 5675
+Wire Wire Line
+	2700 5500 2700 5675
+Wire Wire Line
+	1650 4925 1550 4925
+Wire Wire Line
+	1550 4775 1550 4925
+Wire Wire Line
+	1650 5125 1125 5125
+Text Label 1600 5125 2    50   ~ 0
+~PORT1_EN
+Text Label 1600 5375 2    50   ~ 0
+~PORT1_OC
+Wire Wire Line
+	2450 5375 1125 5375
+Wire Wire Line
+	2450 5125 2450 5375
+Wire Wire Line
+	2700 4925 3425 4925
+$Comp
+L power:GND #PWR?
+U 1 1 6271D191
+P 2400 5675
+F 0 "#PWR?" H 2400 5425 50  0001 C CNN
+F 1 "GND" H 2405 5502 50  0000 C CNN
+F 2 "" H 2400 5675 50  0001 C CNN
+F 3 "" H 2400 5675 50  0001 C CNN
+	1    2400 5675
+	1    0    0    -1  
+$EndComp
+Connection ~ 2400 5675
+Wire Wire Line
+	2400 5675 2700 5675
+Text Label 3025 4925 0    50   ~ 0
+VBUS1
+$Comp
+L power:+5V #PWR?
+U 1 1 6271D86D
+P 4025 4775
+AR Path="/6271D86D" Ref="#PWR?"  Part="1" 
+AR Path="/5ED29570/6271D86D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4025 4625 50  0001 C CNN
+F 1 "+5V" H 4040 4948 50  0000 C CNN
+F 2 "" H 4025 4775 50  0001 C CNN
+F 3 "" H 4025 4775 50  0001 C CNN
+	1    4025 4775
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 6271D877
+P 5175 5350
+AR Path="/6271D877" Ref="C?"  Part="1" 
+AR Path="/5ED29570/6271D877" Ref="C?"  Part="1" 
+F 0 "C?" H 5150 5225 50  0000 R CNN
+F 1 "100u" H 5200 5225 50  0000 L CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3528-21_Kemet-B" H 5213 5200 50  0001 C CNN
+F 3 "~" H 5175 5350 50  0001 C CNN
+	1    5175 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Power_Management:AAT4610BIGV-1-T1 U?
+U 1 1 6271D881
+P 4525 5025
+AR Path="/6271D881" Ref="U?"  Part="1" 
+AR Path="/5ED29570/6271D881" Ref="U?"  Part="1" 
+F 0 "U?" H 4525 5392 50  0000 C CNN
+F 1 "AAT4610BIGV-1-T1" H 4525 5301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-8" H 4525 5375 50  0001 C CNN
+F 3 "http://www.skyworksinc.com/uploads/documents/201937A.pdf" H 4475 5325 50  0001 C CNN
+	1    4525 5025
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4925 4925 5175 4925
+Wire Wire Line
+	5175 4925 5175 5200
+Connection ~ 5175 4925
+Wire Wire Line
+	4525 5325 4525 5675
+Wire Wire Line
+	4525 5675 4875 5675
+Wire Wire Line
+	5175 5500 5175 5675
+Wire Wire Line
+	4125 4925 4025 4925
+Wire Wire Line
+	4025 4775 4025 4925
+Wire Wire Line
+	4125 5125 3600 5125
+Text Label 4075 5125 2    50   ~ 0
+~PORT2_EN
+Text Label 4075 5375 2    50   ~ 0
+~PORT2_OC
+Wire Wire Line
+	4925 5375 3600 5375
+Wire Wire Line
+	4925 5125 4925 5375
+Wire Wire Line
+	5175 4925 5900 4925
+$Comp
+L power:GND #PWR?
+U 1 1 6271D899
+P 4875 5675
+F 0 "#PWR?" H 4875 5425 50  0001 C CNN
+F 1 "GND" H 4880 5502 50  0000 C CNN
+F 2 "" H 4875 5675 50  0001 C CNN
+F 3 "" H 4875 5675 50  0001 C CNN
+	1    4875 5675
+	1    0    0    -1  
+$EndComp
+Connection ~ 4875 5675
+Wire Wire Line
+	4875 5675 5175 5675
+Text Label 5500 4925 0    50   ~ 0
+VBUS2
+$Comp
+L power:+5V #PWR?
+U 1 1 6273C1E2
+P 1550 6225
+AR Path="/6273C1E2" Ref="#PWR?"  Part="1" 
+AR Path="/5ED29570/6273C1E2" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1550 6075 50  0001 C CNN
+F 1 "+5V" H 1565 6398 50  0000 C CNN
+F 2 "" H 1550 6225 50  0001 C CNN
+F 3 "" H 1550 6225 50  0001 C CNN
+	1    1550 6225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 6273C1EC
+P 2700 6800
+AR Path="/6273C1EC" Ref="C?"  Part="1" 
+AR Path="/5ED29570/6273C1EC" Ref="C?"  Part="1" 
+AR Path="/64388AFF/6273C1EC" Ref="C?"  Part="1" 
+F 0 "C?" H 2675 6675 50  0000 R CNN
+F 1 "100u" H 2725 6675 50  0000 L CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3528-21_Kemet-B" H 2738 6650 50  0001 C CNN
+F 3 "~" H 2700 6800 50  0001 C CNN
+	1    2700 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Power_Management:AAT4610BIGV-1-T1 U?
+U 1 1 6273C1F6
+P 2050 6475
+AR Path="/6273C1F6" Ref="U?"  Part="1" 
+AR Path="/5ED29570/6273C1F6" Ref="U?"  Part="1" 
+F 0 "U?" H 2050 6842 50  0000 C CNN
+F 1 "AAT4610BIGV-1-T1" H 2050 6751 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-8" H 2050 6825 50  0001 C CNN
+F 3 "http://www.skyworksinc.com/uploads/documents/201937A.pdf" H 2000 6775 50  0001 C CNN
+	1    2050 6475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2450 6375 2700 6375
+Wire Wire Line
+	2700 6375 2700 6650
+Connection ~ 2700 6375
+Wire Wire Line
+	2050 6775 2050 7125
+Wire Wire Line
+	2050 7125 2400 7125
+Wire Wire Line
+	2700 6950 2700 7125
+Wire Wire Line
+	1650 6375 1550 6375
+Wire Wire Line
+	1550 6225 1550 6375
+Wire Wire Line
+	1650 6575 1125 6575
+Text Label 1600 6575 2    50   ~ 0
+~PORT3_EN
+Text Label 1600 6825 2    50   ~ 0
+~PORT3_OC
+Wire Wire Line
+	2450 6825 1125 6825
+Wire Wire Line
+	2450 6575 2450 6825
+Wire Wire Line
+	2700 6375 3425 6375
+$Comp
+L power:GND #PWR?
+U 1 1 6273C20E
+P 2400 7125
+F 0 "#PWR?" H 2400 6875 50  0001 C CNN
+F 1 "GND" H 2405 6952 50  0000 C CNN
+F 2 "" H 2400 7125 50  0001 C CNN
+F 3 "" H 2400 7125 50  0001 C CNN
+	1    2400 7125
+	1    0    0    -1  
+$EndComp
+Connection ~ 2400 7125
+Wire Wire Line
+	2400 7125 2700 7125
+Text Label 3025 6375 0    50   ~ 0
+VBUS3
+$Comp
+L power:+5V #PWR?
+U 1 1 6273C21B
+P 4025 6225
+AR Path="/6273C21B" Ref="#PWR?"  Part="1" 
+AR Path="/5ED29570/6273C21B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4025 6075 50  0001 C CNN
+F 1 "+5V" H 4040 6398 50  0000 C CNN
+F 2 "" H 4025 6225 50  0001 C CNN
+F 3 "" H 4025 6225 50  0001 C CNN
+	1    4025 6225
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 6273C225
+P 5175 6800
+AR Path="/6273C225" Ref="C?"  Part="1" 
+AR Path="/5ED29570/6273C225" Ref="C?"  Part="1" 
+F 0 "C?" H 5150 6675 50  0000 R CNN
+F 1 "100u" H 5200 6675 50  0000 L CNN
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3528-21_Kemet-B" H 5213 6650 50  0001 C CNN
+F 3 "~" H 5175 6800 50  0001 C CNN
+	1    5175 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Power_Management:AAT4610BIGV-1-T1 U?
+U 1 1 6273C22F
+P 4525 6475
+AR Path="/6273C22F" Ref="U?"  Part="1" 
+AR Path="/5ED29570/6273C22F" Ref="U?"  Part="1" 
+F 0 "U?" H 4525 6842 50  0000 C CNN
+F 1 "AAT4610BIGV-1-T1" H 4525 6751 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-8" H 4525 6825 50  0001 C CNN
+F 3 "http://www.skyworksinc.com/uploads/documents/201937A.pdf" H 4475 6775 50  0001 C CNN
+	1    4525 6475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4925 6375 5175 6375
+Wire Wire Line
+	5175 6375 5175 6650
+Connection ~ 5175 6375
+Wire Wire Line
+	4525 6775 4525 7125
+Wire Wire Line
+	4525 7125 4875 7125
+Wire Wire Line
+	5175 6950 5175 7125
+Wire Wire Line
+	4125 6375 4025 6375
+Wire Wire Line
+	4025 6225 4025 6375
+Wire Wire Line
+	4125 6575 3600 6575
+Text Label 4075 6575 2    50   ~ 0
+~PORT4_EN
+Text Label 4075 6825 2    50   ~ 0
+~PORT4_OC
+Wire Wire Line
+	4925 6825 3600 6825
+Wire Wire Line
+	4925 6575 4925 6825
+Wire Wire Line
+	5175 6375 5900 6375
+$Comp
+L power:GND #PWR?
+U 1 1 6273C247
+P 4875 7125
+F 0 "#PWR?" H 4875 6875 50  0001 C CNN
+F 1 "GND" H 4880 6952 50  0000 C CNN
+F 2 "" H 4875 7125 50  0001 C CNN
+F 3 "" H 4875 7125 50  0001 C CNN
+	1    4875 7125
+	1    0    0    -1  
+$EndComp
+Connection ~ 4875 7125
+Wire Wire Line
+	4875 7125 5175 7125
+Text Label 5500 6375 0    50   ~ 0
+VBUS4
+Wire Wire Line
+	7850 1875 8400 1875
+Wire Wire Line
+	8400 1975 7850 1975
+Text Label 7875 1875 0    50   ~ 0
+~PORT1_EN
+Text Label 7875 1975 0    50   ~ 0
+~PORT1_OC
+$Comp
+L Interface_USB:USB2514B_Bi U602
+U 1 1 644028E0
+P 6750 2575
+F 0 "U602" H 7625 1125 50  0000 C CNN
+F 1 "USB2514B_Bi" H 6025 1100 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-36-1EP_6x6mm_P0.5mm_EP3.7x3.7mm" H 8050 1075 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/00001692C.pdf" H 8350 975 50  0001 C CNN
+	1    6750 2575
+	1    0    0    -1  
+$EndComp
+Text Label 7900 2375 0    50   ~ 0
+~PORT2_EN
+Text Label 7900 2475 0    50   ~ 0
+~PORT2_OC
+Text Label 7900 2875 0    50   ~ 0
+~PORT3_EN
+Text Label 7900 2975 0    50   ~ 0
+~PORT3_OC
+Text Label 7900 3375 0    50   ~ 0
+~PORT4_EN
+Wire Wire Line
+	7850 3475 8250 3475
+Wire Wire Line
+	7850 3375 8250 3375
+Text Label 7900 3475 0    50   ~ 0
+~PORT4_OC
+Wire Wire Line
+	7850 2675 8775 2675
+Wire Wire Line
+	7850 2775 8700 2775
+Wire Wire Line
+	7850 3175 8625 3175
+Wire Wire Line
+	7850 3275 8550 3275
+Wire Wire Line
+	7850 2975 8250 2975
+Wire Wire Line
+	7850 2875 8250 2875
+Wire Wire Line
+	7850 2475 8250 2475
+Wire Wire Line
+	8250 2375 7850 2375
+Wire Wire Line
+	8625 2275 8625 2325
+Wire Wire Line
+	8625 2325 8800 2325
+Wire Wire Line
+	7850 2275 8625 2275
+Wire Wire Line
+	8675 2175 8675 2225
+Wire Wire Line
+	8675 2225 8800 2225
+Wire Wire Line
+	7850 2175 8675 2175
+$Comp
+L power:+3.3V #PWR?
+U 1 1 627A7879
+P 6450 775
+F 0 "#PWR?" H 6450 625 50  0001 C CNN
+F 1 "+3.3V" H 6465 948 50  0000 C CNN
+F 2 "" H 6450 775 50  0001 C CNN
+F 3 "" H 6450 775 50  0001 C CNN
+	1    6450 775 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 775  6450 900 
+Wire Wire Line
+	6550 1075 6550 900 
+Wire Wire Line
+	6550 900  6450 900 
+Connection ~ 6450 900 
+Wire Wire Line
+	6450 900  6450 1075
+Wire Wire Line
+	6650 1075 6650 900 
+Wire Wire Line
+	6650 900  6550 900 
+Connection ~ 6550 900 
+Wire Wire Line
+	6750 1075 6750 900 
+Wire Wire Line
+	6750 900  6650 900 
+Connection ~ 6650 900 
+Wire Wire Line
+	6950 900  6750 900 
+Wire Wire Line
+	6950 900  6950 1075
+Connection ~ 6750 900 
+Wire Wire Line
+	6950 900  7050 900 
+Wire Wire Line
+	7050 900  7050 1075
+Wire Bus Line
+	2900 1975 2900 2675
+Connection ~ 6950 900 
 $EndSCHEMATC

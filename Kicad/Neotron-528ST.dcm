@@ -6,4 +6,10 @@ K Video Filter
 F https://datasheet.lcsc.com/szlcsc/3PEAK-TPF133A-SR_C155446.pdf
 $ENDCMP
 #
+$CMP USB_A_x2
+D USB Type A connector
+K connector USB
+F  ~
+$ENDCMP
+#
 #End Doc Library
