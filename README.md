@@ -69,9 +69,9 @@ This microcontroller has:
 * USB Full-speed (12 Mbps) OTG MAC/PHY
 * USB High-speed (480 Mbps) OTG MAC
 * 24-bit LCD-TFT interface with ChromART 2D video accelerator
-* Hardware JPEG decoder, random number generator
+* Hardware JPEG, random number generator, CRC and crypto
 * RTC with 4 KiB battery backed RAM
-* Camera interfae
+* MIPI CSI Camera interface
 * 2x SD/MMC controllers
 * Multiple I2S audio in/out interfaces
 * Multiple UART interfaces
@@ -79,7 +79,7 @@ This microcontroller has:
 * Multiple I2C bus interfaces
 * Multiple CAN bus interfaces
 
-In terms of the CoreMark benchmark (and when running from internal Flash), this CPU is about the same speed as a Raspberry Pi Zero (despite running at just 40% of the clock speed), and somewhere around an 866 MHz Pentium III running from SDRAM. Running from external QuadSPI SRAM we expect it to be about 50% of that performance, but it should be able to run Quake ;)
+In terms of the CoreMark benchmark (and when running from internal Flash), this CPU is about the same speed as a Raspberry Pi Zero (despite running at just 40% of the clock speed), and somewhere around an 866 MHz Pentium III running from SDRAM. Running from external QuadSPI SRAM, however, is where we are down on performance. PC66 SDRAM has a peak of around 500 MiB/sec, and 32-bit 33.3 MHz DRAM is about 125 MiB/sec, whilst our QuadSPI SRAM is more like 40 MiB/sec. But I'm hoping it will run Doom.
 
 ### Memory Layout
 
@@ -132,7 +132,7 @@ The motherboard has:
 * IEEE1284 Parallel Port (26-pin IDC box header as used on PCs)
 * RS232 Port (five-wire, 10-pin IDC box header as used on PCs)
 * 40-pin IDE interface
-* Coin-cell the STM32's real-time clock and battery-backed SRAM
+* Coin-cell for the STM32's real-time clock and battery-backed SRAM
 * SPI and I2C based expansion bus (compatible with the Neotron 32)
 * Additional QuadSPI expansion bus
 
