@@ -1,16 +1,15 @@
-# Neotron XXXST
+# Neotron 500
 
 > A Neotron based home computer, powered by an 32-bit ARM Cortex-M7, with USB, Ethernet and hardware accelerated graphics.
 
 ## The top-level Specs
 
-* 400 MHz 32-bit ARM Cortex-M7 CPU core
+* 480 MHz 32-bit ARM Cortex-M7 CPU core
 * 1024 KiB of internal ECC SRAM (used as VRAM and for OS buffers)
 * 8 MiB external QuadSPI SRAM
 * Super-VGA output
    * 640x480
    * 800x600
-   * 1024x768
    * 256 colours from a pallette of 262,144
 * 16-bit 48 kHz audio input and output (line-in, mic-in, line-out and headphone-out)
 * Four high-speed (480 Mbps) USB 2.0 ports
@@ -25,19 +24,17 @@
 * Battery-backed Real-time Clock and CMOS RAM
 * SPI and I2C based expansion bus
 
-## Why XXXST?
+## Why 500?
 
-We called this the XXXST because:
-
-* It has a part from ST Micro
-* It sounds a bit like that 68000 based machine that wasn't quite as good as an Amiga 500...
-* Well I don't know the rest because I haven't picked the name yet
+We already had a Neotron 32 and a Neotron 1000, and this was somewhere inbetween the two. Plus it's roughly the performance of an Amiga 500.
 
 ## The detailed specs
 
 ### The Processor
 
-The Neotron-XXXST uses the STM32H753IIT6 microcontroller.
+The Neotron-500 uses an [STM32H753IIT6] microcontroller.
+
+[STM32H753IIT6]: https://www.st.com/en/microcontrollers-microprocessors/stm32h753ii.html
 
 ```
 STM32H753IIT6
@@ -58,7 +55,7 @@ This microcontroller has:
   * hardware floating point
   * 16 KiB instruction cache
   * 16 KiB data cache  
-* Clockspeed of up to 400 MHz
+* Clockspeed of up to 480 MHz
 * 176 pins, in a low-profile quad flat package (LQFP)
 * 2 MiB Flash
 * 128 KiB tightly-coupled (Cortex-M only) data SRAM
@@ -84,9 +81,26 @@ This microcontroller has:
 
 In terms of the CoreMark benchmark (and when running from internal Flash), this CPU is about the same speed as a Raspberry Pi Zero (despite running at just 40% of the clock speed), and somewhere around an 866 MHz Pentium III running from SDRAM. Running from external QuadSPI SRAM we expect it to be about 50% of that performance, but it should be able to run Quake ;)
 
+### Memory Layout
+
+We use:
+
+* 128 KiB tightly-coupled data SRAM for the system stack and OS buffer.
+* 64 KiB tightly-coupled instruction SRAM for OS routines.
+* 128 KiB SRAM for DMA and device buffers.
+* 512 KiB AXI-SRAM for video frame buffers.
+  * 640x480 @ 8bpp = 300 KiB
+  * 800x600 @ 8bpp = 468 KiB
+* 4 KiB battery backed SRAM for system settings
+* 512 KiB internal Flash for the Neotron BIOS
+* 512 KiB internal Flash for Neotron OS
+* 1024 KiB internal Flash for ROM-based user applications
+
+You can either use external QSPI SRAM, or the second 128 KiB SRAM bank, for running user applications.
+
 ## The Motherboard
 
-The Neotron XXXST Motherboard is completely open-source hardware, and all the components are either through-hole parts that are easy to self install, or available from the [JLCPCB SMT assembly service].
+The Neotron 500 Motherboard is completely open-source hardware, and all the components are either through-hole parts that are easy to self install, or available from the [JLCPCB SMT assembly service].
 
 The motherboard has:
 
@@ -97,10 +111,10 @@ The motherboard has:
   * Or we could take 6V-9V from a DC barrel jack and have an on-board 5V regulator
 * Lyontek LY68L6400SLIT 8 MiB (8Mbit x 8) QuadSPI SRAM
   * 4-bit interface
-  * 84 MHz clock rate
+  * 84 MHz clock rate (higher if we can configure the STM32 to avoid crossing page boundaries)
 * Texas Instruments DP83848C 10/100 MII/RMII Ethernet PHY, and RJ45 Ethernet jack
   * MII Interface to the STM32
-  * RJ45 100base-T Ethernet socket
+  * RJ45 100BASE-TX Ethernet jack
 * Texas Instruments TLV320AIC23BPW Audio Codec
   * 16-bit 48 kHz I2S input and output to the STM32
   * Amplified stereo 3.5mm TRS headphone output
@@ -109,7 +123,7 @@ The motherboard has:
   * Mono microphone 3.5mm input
 * Microchip USB3300 High-speed (480 Mbps) ULPI USB 2.0 PHY
 * Microchip USB2514B High-speed (480 Mbps) four port USB 2.0 hub, with 2x2 USB 2.0 A ports.
-* 18-bit (6-6-6) R2R DAC and 3PEAK HD video output buffer, with DE15HD VGA connector
+* 18-bit (6-6-6) R2R DAC and 3PEAK HD video output buffer, with standard DE15HD VGA connector
 * Full-size external-facing SD Card slot
 * 2x PS/2 Ports for keyboard and mouse (2x mini-DIN 6-pin sockets)
 * 2x 9-pin Atari Joystick/SEGA Genesis game-pad ports
@@ -118,9 +132,14 @@ The motherboard has:
 * IEEE1284 Parallel Port (26-pin IDC box header as used on PCs)
 * RS232 Port (five-wire, 10-pin IDC box header as used on PCs)
 * 40-pin IDE interface
-* Battery backup for the Real-time Clock and battery-backed RAM
+* Coin-cell the STM32's real-time clock and battery-backed SRAM
 * SPI and I2C based expansion bus (compatible with the Neotron 32)
+* Additional QuadSPI expansion bus
 
 [JLCPCB SMT assembly service]: https://jlcpcb.com/parts
 
-Expected price is $40 for the motherboard with SMT parts loaded, and another $20 for the connectors
+Expected price is $40 for the motherboard with SMT parts loaded, and another $20 for the through-hole connectors
+
+## Software
+
+This system is designed to run the Neotron OS. To do that, it has a bespoke version of the Neotron BIOS. It is compatible with all 'well-behaved' Neotron applications that stick to the Neotron OS APIs rather than poking hardware directly.
