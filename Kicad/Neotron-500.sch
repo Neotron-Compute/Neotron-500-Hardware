@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A2 23386 16535
 encoding utf-8
-Sheet 1 6
+Sheet 1 5
 Title "Neotron F7"
 Date "2020-05-25"
 Rev "0.0.1"
@@ -36,7 +36,7 @@ F 3 "http://portal.fciconnect.com/Comergent//fci/drawing/10067847.pdf" H 13075 9
 	1    0    0    -1  
 $EndComp
 Text Notes 16875 3475 0    100  Italic 0
-System Design:\nSTM32F767IGT* with VGA output with 280 ohm R2R DAC\nTUSB2036 3-port USB 2.0 Full-speed Hub (12 Mbit/sec)\nDP83848C 100base-T Ethernet PHY\nTLV320AIC23B I2S Audio Codec*\nMAX232ESE RS-232 Driver\n74HC245 bus transceiver and 74HC573 3-state Latch Parallel Port and ATA\n\nNote that it's not possible to have an external USB 2.0 High-speed ULPI\nPHY, and the LCD-TFT output, AND the Ethernet MAC. I concluded the\nEthernet MAC was more useful than 480 Mbps USB.
+System Design:\nSTM32H743IIT6 with VGA output via R2R DAC\nDP83848C 100base-T Ethernet PHY\nUSB3300 ULPI High-Speed PHY and USB2514 4-port Hub\nTLV320AIC23B I2S Audio Codec\nMAX232ESE RS-232 Driver\n\nTBD: 74HC245 bus transceiver and 74HC573 3-state Latch Parallel Port and ATA. Do we have room for the SRAM bus?\n
 $Comp
 L Interface_UART:MAX232 U104
 U 1 1 5EEA5339
@@ -206,7 +206,7 @@ $EndComp
 Text Notes 12450 2150 0    50   ~ 0
 USB Power Input - 2.5A max
 $Comp
-L ExtraConnectors:Double-mini-DIN-6 J102
+L Neotron-500-rescue:Double-mini-DIN-6-ExtraConnectors J102
 U 1 1 5EF144BD
 P 13025 4975
 F 0 "J102" H 13025 5673 50  0000 C CNN
@@ -254,12 +254,6 @@ F9 "~RESET" I L 14657 8325 50
 F10 "RX_ER" O R 15382 7675 50 
 F11 "CRS_DV" O R 15382 7775 50 
 F12 "ETH_REF_CLK" I L 14657 8025 50 
-$EndSheet
-$Sheet
-S 17150 8875 700  850 
-U 5EF25502
-F0 "IEEE1284 Parallel Port" 50
-F1 "ieee1284.sch" 50
 $EndSheet
 $Comp
 L Regulator_Linear:AMS1117-3.3 U101
@@ -1345,8 +1339,6 @@ Text Label -2325 8750 0    50   ~ 0
 FMC_A21
 Text Label -2325 8850 0    50   ~ 0
 FMC_A22
-Text Label 20075 6550 0    50   ~ 0
-QUADSPI_CLK
 Text Label -6375 6175 0    50   ~ 0
 ETH_MDC
 Text Label -6375 6675 0    50   ~ 0
@@ -1441,8 +1433,6 @@ Text Label -5150 6150 0    50   ~ 0
 I2S3_CK
 Text Label -6375 6775 0    50   ~ 0
 ETH_TXD3
-Text Label 20075 6450 0    50   ~ 0
-QUADSPI_BK1_NCS
 Text Label -7700 6225 0    50   ~ 0
 USB_OTG_HS_ULPI_D7
 Text Label -7700 6125 0    50   ~ 0
@@ -1463,14 +1453,6 @@ Text Label -7700 5525 0    50   ~ 0
 USB_OTG_HS_ULPI_D0
 Text Label -7700 6425 0    50   ~ 0
 USB_OTG_HS_ULPI_STP
-Text Label 20075 6850 0    50   ~ 0
-QUADSPI_BK1_IO1
-Text Label 20075 6950 0    50   ~ 0
-QUADSPI_BK1_IO0
-Text Label 20075 6750 0    50   ~ 0
-QUADSPI_BK1_IO2
-Text Label 20075 6650 0    50   ~ 0
-QUADSPI_BK1_IO3
 Text Label 13000 14925 0    50   ~ 0
 LTDC_VSYNC
 Text Label 13000 14825 0    50   ~ 0
@@ -1621,17 +1603,6 @@ Entry Wire Line
 	-1550 8850 -1450 8950
 Entry Wire Line
 	-1550 8950 -1450 9050
-$Comp
-L Memory_RAM:ESP-PSRAM32 U102
-U 1 1 6438446A
-P 21250 6750
-F 0 "U102" H 21050 7225 50  0000 R CNN
-F 1 "LY68S3200SLT" H 21825 7225 50  0000 R CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 21250 6150 50  0001 C CNN
-F 3 "" H 20850 7250 50  0001 C CNN
-	1    21250 6750
-	-1   0    0    -1  
-$EndComp
 $Sheet
 S 16500 4525 1875 1500
 U 64388AFF
@@ -1699,39 +1670,6 @@ F 2 "" H 1425 2325 50  0001 C CNN
 F 3 "~" H 1425 2325 50  0001 C CNN
 	1    1425 2325
 	0    -1   -1   0   
-$EndComp
-$Comp
-L power:+3.3V #PWR0124
-U 1 1 61B2AC77
-P 21350 6100
-F 0 "#PWR0124" H 21350 5950 50  0001 C CNN
-F 1 "+3.3V" H 21365 6273 50  0000 C CNN
-F 2 "" H 21350 6100 50  0001 C CNN
-F 3 "" H 21350 6100 50  0001 C CNN
-	1    21350 6100
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0125
-U 1 1 61B2C07F
-P 21350 7350
-F 0 "#PWR0125" H 21350 7100 50  0001 C CNN
-F 1 "GND" H 21355 7177 50  0000 C CNN
-F 2 "" H 21350 7350 50  0001 C CNN
-F 3 "" H 21350 7350 50  0001 C CNN
-	1    21350 7350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C108
-U 1 1 61B2CDF6
-P 21800 6650
-F 0 "C108" H 21915 6696 50  0000 L CNN
-F 1 "100n" H 21915 6605 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 21838 6500 50  0001 C CNN
-F 3 "~" H 21800 6650 50  0001 C CNN
-	1    21800 6650
-	1    0    0    -1  
 $EndComp
 Entry Bus Bus
 	13500 15025 13600 15125
@@ -2196,16 +2134,6 @@ Wire Wire Line
 Wire Wire Line
 	1675 5975 2050 5975
 Wire Wire Line
-	20025 6550 20850 6550
-Wire Wire Line
-	20025 6850 20850 6850
-Wire Wire Line
-	20025 6950 20850 6950
-Wire Wire Line
-	20025 6750 20850 6750
-Wire Wire Line
-	20025 6650 20850 6650
-Wire Wire Line
 	-2525 5850 -1700 5850
 Wire Wire Line
 	-7750 5525 -6925 5525
@@ -2249,8 +2177,6 @@ Wire Wire Line
 	-7750 5825 -6925 5825
 Wire Wire Line
 	-6425 6775 -5600 6775
-Wire Wire Line
-	20025 6450 20850 6450
 Wire Wire Line
 	-7750 6225 -6925 6225
 Wire Wire Line
@@ -2436,24 +2362,6 @@ Wire Wire Line
 Connection ~ 1425 2325
 Wire Wire Line
 	1425 2325 1425 2275
-Wire Wire Line
-	21350 6100 21350 6175
-Wire Wire Line
-	21350 7250 21350 7300
-Wire Wire Line
-	21350 7300 21800 7300
-Wire Wire Line
-	21800 7300 21800 6800
-Wire Wire Line
-	21800 6175 21350 6175
-Wire Wire Line
-	21800 6500 21800 6175
-Connection ~ 21350 7300
-Wire Wire Line
-	21350 7300 21350 7350
-Connection ~ 21350 6175
-Wire Wire Line
-	21350 6175 21350 6250
 Wire Bus Line
 	17125 15850 16350 15850
 Entry Bus Bus
@@ -2503,11 +2411,11 @@ Wire Wire Line
 Wire Wire Line
 	3850 3175 3850 3300
 $Comp
-L MCU_ST_STM32H7:STM32H753IITx U?
+L MCU_ST_STM32H7:STM32H753IITx U103
 U 1 1 5EFD158A
 P 4650 7700
-F 0 "U?" H 5700 3350 50  0000 C CNN
-F 1 "STM32H753IITx" H 5700 3250 50  0000 C CNN
+F 0 "U103" H 5700 3350 50  0000 C CNN
+F 1 "STM32H743IIT6" H 5700 3250 50  0000 C CNN
 F 2 "Package_QFP:LQFP-176_24x24mm_P0.5mm" H 3450 3400 50  0001 R CNN
 F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00388325.pdf" H 4650 7700 50  0001 C CNN
 	1    4650 7700
@@ -2775,4 +2683,15 @@ Text Label 3200 6400 2    50   ~ 0
 LTDC_B7
 Wire Wire Line
 	3175 2400 5000 2400
+$Comp
+L Memory_RAM:AS4C4M16SA U105
+U 1 1 5F954597
+P 19750 12025
+F 0 "U105" H 19750 13506 50  0000 C CNN
+F 1 "W9864G6KH-6" H 19750 13415 50  0000 C CNN
+F 2 "TSOPII-54" H 19750 12025 50  0001 C CIN
+F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/dram/64M-AS4C4M16SA-CI_v3.0_March%202015.pdf" H 19750 11775 50  0001 C CNN
+	1    19750 12025
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
