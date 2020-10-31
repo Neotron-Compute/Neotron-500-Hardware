@@ -17,6 +17,7 @@
 
 * 3PEAK TPF133A 3x channel 36 MHz HD Video Filter - $0.16
   * https://datasheet.lcsc.com/szlcsc/3PEAK-TPF133A-SR_C155446.pdf
+  * Equivalent to TI THS7316 (but cheaper)
 
 * Lattice SiI9022A HDMI Transmitter (RGB + I²S to HDMI) - $2.10
   * https://datasheet.lcsc.com/szlcsc/1903061001_Lattice-SII9022ACNU_C369565.pdf
@@ -30,21 +31,30 @@
 
 * Microchip USB2514B High-speed (480 Mbps) four port USB 2.0 hub, with 2x2 USB 2.0 A ports - $1.43
 
-* Wiznet W5500 - SPI Ethernet MAC/PHY with TCP/IP stack (£1.80)
-
 * Sipex SP3222E RS-232 level shifter (2 TTL->RS232, 2 TTL<-RS232) ($0.34)
+  * Also SP3232E, which skips the Shutdown/tri-state function
 
 * Silergy SY6280 Power Distribution Switch (£0.10)
+  * Adjustable current limit (set with external Rset resistor)
   * https://datasheet.lcsc.com/szlcsc/Silergy-Corp-SY6280AAC_C55136.pdf
 
-* Texas Instruments TPS5430DDAR 3A Buck Regulator (5.5V to 30V) (£0.53)
+* Texas Instruments TPS5430DDAR 3A Buck Regulator (5.5V to 30V input) (£0.53)
+  * Adjustable output, down to 1.22V
 
-* ST Micro Smart push-button on/off/reset controller (£0.73)
+* STM6600 ST Micro Smart push-button on/off/reset controller (£0.73)
   * https://datasheet.lcsc.com/szlcsc/STMicroelectronics-STM6601CQ2BDM6F_C155568.pdf
+  * Different parts have different voltage thresholds (this one is 3.3V)
+  * Reset and Power Button Inputs
+  * Digital EN, RST, INT and PB outputs, and PowerHold input 
 
 * HDMI Connector Digikey 1175-1700-ND  £1.08
 
 ## Good to know
+
+* LPC811M001JDH16 £1.03 (Digikey)
+  * 16-TSSOP 30 MHz Cortex-M0 with 5V tolerant I/O - good Arm keyboard controller!
+  * 8 KiB Flash, 2 KiB RAM
+  * See also M101 (double the Flash/RAM)
 
 * Maxim MAX16054AZT On/Off Controller - $1.11
   * https://datasheet.lcsc.com/szlcsc/Maxim-Integrated-MAX16054AZT-T_C79401.pdf
@@ -53,10 +63,20 @@
 
 * Micrel KSZ8851SNL - SPI version of the KSZ8851 (not at JLCPCB)
 
+* Wiznet W5500 - SPI Ethernet MAC/PHY with TCP/IP stack (£1.80)
+  * Non-free firmware
+
 * Davicom DM9051 - SPI Ethernet MAC/PHY ($2.70)
+  * https://cdn.datasheetspdf.com/pdf-down/D/M/9/DM9051-DAVICOM.pdf
+  * 100base-T
+  * 50 MHz max SPI clock
+  * Non-free firmware? Has internal DSP, but no TCP/IP stack (only raw Ethernet)
 
 * Microchip ENC28J60 - SPI Ethernet MAC/PHY ($2.17)
   * https://datasheet.lcsc.com/szlcsc/1908161831_Microchip-Tech-ENC28J60-I-SS_C411626.pdf
+  * Friends on Matrix say it has a *lot* of errata to work around
+  * 10base-T
+  * 20 MHz max SPI clock
 
 * Diodes Inc APX823-29W5G-7 Supervisor (2.93V Vth Supervisor 200ms with manual reset input) (£0.11)
 
@@ -64,6 +84,7 @@
   * https://datasheet.lcsc.com/szlcsc/Microchip-Tech-KSZ8041NLI_C20177.pdf
 
 * Chrontel CH7307C DVI Transmitter - $2.88
+  * Actually this has high-speed serial input, not parallel RGB, so it's not useful
   * https://datasheet.lcsc.com/szlcsc/1812181035_Chrontel-CH7307C-DEF_C341250.pdf
 
 * Analog ADV7511 HDMI Encoder/Transmitter (RGB + I²S/SPDIF to HDMI) - $7.21
@@ -71,7 +92,8 @@
 
 ## Need to find
 
-Schottky diodes for USB_VCC / Buck_VCC mixing. Ideally low voltage drop (0.1V?).
+* Schottky diodes for USB_VCC / Buck_VCC mixing. Ideally low voltage drop (0.1V?)
+  * BAT54C diodes are what the Giant Board, and the Raspberry Pi, use.
 
 ## JLCPCB PCB Pricing
 
