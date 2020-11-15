@@ -1,5 +1,19 @@
+#!/usr/bin/env python3
+
+"""
+Attempts to find suitable PLL parameters for a given target frequency.
+"""
+
+__author__ = "Jonathan 'theJPster' Pallant (github@thejpster.org.uk)"
+__licence__ = "GPLv3 or later"
+__copyright__ = "Jonathan 'theJPster' Pallant 2020"
+
+# Input clock frequency in Hz
 input = 25000000
-target = 24576000 * 8
+
+# Target clock frequency in Hz
+target = 44100 * 256
+
 best_error = 2**32
 params = (0,0,0)
 for divm in range(1, 64):
@@ -24,5 +38,3 @@ for divm in range(1, 64):
 							break
 
 print(params)
-print 
-

@@ -3,13 +3,13 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Sheet 3 8
+Title "Neotron 500"
+Date "2020-11-15"
+Rev "0.0.2"
+Comp "github@thejpster.org.uk"
+Comment1 "https://github.com/neotron-compute/Neotron-500-Hardware"
+Comment2 "CC-BY-SA"
 Comment3 ""
 Comment4 ""
 $EndDescr
